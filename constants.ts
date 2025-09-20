@@ -18,8 +18,8 @@ export const NAV_LINKS = [
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
-    url: "https://placehold.co/800x600/1e1b18/f97316?text=Kegiatan+1",
-    caption: "Event mingguan BOLD",
+    url: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/8515744106_109823415860116_1756660685271.png",
+    caption: "Event mingguan BOLD DAY",
     date: "2025-09-01",
   },
   {
