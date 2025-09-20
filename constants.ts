@@ -20,12 +20,12 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     url: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/8515744106_109823415860116_1756660685271.png",
     caption: "Event mingguan BOLD DAY",
-    date: "2025-09-01",
+    date: "2025-09-06",
   },
   {
-    url: "https://placehold.co/800x600/1e1b18/f97316?text=Kegiatan+2",
-    caption: "Judul kegiatan",
-    date: "2025-08-20",
+    url: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/8515744106_109823415860116_1756662137640.png",
+    caption: "Event mingguan BOLD DAY",
+    date: "2025-09-13",
   },
   {
     url: "https://placehold.co/800x600/1e1b18/f97316?text=Kegiatan+3",
