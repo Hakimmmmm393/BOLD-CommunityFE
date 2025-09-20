@@ -28,14 +28,14 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: "2025-09-13",
   },
   {
-    url: "https://placehold.co/800x600/1e1b18/f97316?text=Kegiatan+3",
-    caption: "Judul kegiatan",
-    date: "2025-08-10",
+    url: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/8515744106_109823415860116_1756387857648.png",
+    caption: "Etmin etmin tampan",
+    date: "2025-08-31",
   },
   {
     url: "https://placehold.co/800x600/1e1b18/f97316?text=Kegiatan+4",
     caption: "Judul kegiatan",
-    date: "2025-07-25",
+    date: "2025-07-31",
   },
 ];
 
