@@ -129,6 +129,13 @@ const AboutSection: React.FC = () => {
                 dalam alasan apapun
               </p>
             </li>
+            <li>
+              <b>9. Share Konten</b>
+              <p>
+                Kirimkan konten dalam bentuk apapun (Pict, Vid, Link) sesuai
+                dengan channel yang sudah tersedia.
+              </p>
+            </li>
           </ul>
         </AboutCard>
       </div>
