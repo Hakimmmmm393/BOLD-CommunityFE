@@ -24,17 +24,17 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     url: "https://placehold.co/800x600/1e1b18/f97316?text=Kegiatan+2",
-    caption: "Tournament Roblox",
+    caption: "Judul kegiatan",
     date: "2025-08-20",
   },
   {
     url: "https://placehold.co/800x600/1e1b18/f97316?text=Kegiatan+3",
-    caption: "Community Gathering",
+    caption: "Judul kegiatan",
     date: "2025-08-10",
   },
   {
     url: "https://placehold.co/800x600/1e1b18/f97316?text=Kegiatan+4",
-    caption: "Creative Build-off",
+    caption: "Judul kegiatan",
     date: "2025-07-25",
   },
 ];
