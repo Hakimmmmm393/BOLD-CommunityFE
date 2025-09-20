@@ -64,7 +64,7 @@ export const TEAM_STRUCTURE: TeamMember[] = [
   {
     role: "Admin",
     name: "BOLD_ADMNxMurphy",
-    img: "https://github.com/Hakimmmmm393/Picture-Only/blob/main/images.jpeg",
+    img: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/Edo.png",
   },
   {
     role: "Leader",
