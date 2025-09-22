@@ -33,9 +33,9 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     date: "2025-08-31",
   },
   {
-    url: "https://placehold.co/800x600/1e1b18/f97316?text=Kegiatan+4",
-    caption: "Judul kegiatan",
-    date: "2025-07-31",
+    url: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-BOLD/refs/heads/main/Roblox_21_09_2025_23_02_18.png",
+    caption: "Undangan dari NIX Community",
+    date: "2025-09-21",
   },
 ];
 
