@@ -1,24 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import AnimatedSection from "../AnimatedSection";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
+// 🔹 Komponen Card yang bisa dibuka/tutup
 const AboutCard: React.FC<{
   title: string;
   children: React.ReactNode;
   delay: number;
-}> = ({ title, children, delay }) => (
-  <motion.div
-    className="bg-zinc-800 p-6 rounded-lg shadow-lg"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.5 }}
-    transition={{ duration: 0.5, delay }}
-  >
-    <h3 className="text-2xl font-bold text-orange-500 mb-4">{title}</h3>
-    <div className="text-gray-300 space-y-2">{children}</div>
-  </motion.div>
-);
+}> = ({ title, children, delay }) => {
+  const [open, setOpen] = useState(false);
 
+  return (
+    <motion.div
+      className="bg-zinc-800 p-6 rounded-lg shadow-lg"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5, delay }}
+    >
+      {/* Header Judul */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex justify-between items-center text-left"
+      >
+        <h3 className="text-2xl font-bold text-orange-500">{title}</h3>
+        <motion.span
+          animate={{ rotate: open ? 90 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-orange-400 font-bold text-xl"
+        >
+          ▶
+        </motion.span>
+      </button>
+
+      {/* Konten DropDown */}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="overflow-hidden mt-4 text-gray-300 space-y-2"
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
+// 🔹 Bagian About Section
 const AboutSection: React.FC = () => {
   return (
     <AnimatedSection id="about">
@@ -28,7 +62,9 @@ const AboutSection: React.FC = () => {
           Our values and what drives our community forward.
         </p>
       </div>
+
       <div className="grid md:grid-cols-3 gap-8">
+        {/* Visi */}
         <AboutCard title="Visi" delay={0.1}>
           <p>
             Menjadi komunitas yang inklusif, nyaman, dan menyenangkan bagi semua
@@ -36,140 +72,93 @@ const AboutSection: React.FC = () => {
             positif.
           </p>
         </AboutCard>
+
+        {/* Misi */}
         <AboutCard title="Misi" delay={0.2}>
-          <li>
-            <p>
-              1. Menciptakan lingkungan yang aman, bebas dari toxic yang
-              berlebihan, diskriminasi, dan provokasi.
-            </p>
-          </li>
-          <li>
-            <p>
-              2. Menumbuhkan rasa saling menghargai antar member tanpa memandang
-              latar belakang apapun.
-            </p>
-          </li>
-          <li>
-            <p>
-              3. Menyediakan ruang interaksi yang beragam (gaming, sharing, dan
-              hiburan).
-            </p>
-          </li>
-          <li>
-            <p>
-              4. Menjaga suasana komunitas tetap fun, kreatif, dan penuh
-              kebersamaan.
-            </p>
-          </li>
-          <li>
-            <p>
-              5. Mengedepankan kedisiplinan dengan tetap menghormati aturan
-              serta arahan staff.
-            </p>
-          </li>
-          <li>
-            <p>
-              6. Menjadi wadah positif di mana setiap member merasa diterima dan
+          <ul className="list-disc list-inside space-y-2">
+            <li>
+              Menciptakan lingkungan yang aman, bebas dari toxic, diskriminasi,
+              dan provokasi.
+            </li>
+            <li>
+              Menumbuhkan rasa saling menghargai antar member tanpa memandang
+              latar belakang.
+            </li>
+            <li>
+              Menyediakan ruang interaksi beragam (gaming, sharing, hiburan).
+            </li>
+            <li>
+              Menjaga suasana komunitas tetap fun, kreatif, penuh kebersamaan.
+            </li>
+            <li>
+              Mengedepankan kedisiplinan dengan tetap menghormati aturan dan
+              arahan staff.
+            </li>
+            <li>
+              Menjadi wadah positif agar setiap member merasa diterima dan
               dihargai.
-            </p>
-          </li>
+            </li>
+          </ul>
         </AboutCard>
+
+        {/* Rules */}
         <AboutCard title="Rules" delay={0.3}>
-          <ul className="list-disc list-inside space-y-1">
+          <ul className="list-decimal list-inside space-y-2">
             <li>
-              <b>1. Hormati Sesama</b>
-              <p>
-                Tidak ada hinaan, toxic, diskriminasi, SARA, atau hal yang
-                merendahkan orang lain.
-              </p>
+              <b>Hormati Sesama</b> – Tidak ada hinaan, toxic, diskriminasi,
+              atau merendahkan orang lain.
             </li>
             <li>
-              <b>2. No Spam</b>
-              <p>Jangan spam teks, emoji, link, atau mention berlebihan.</p>
+              <b>No Spam</b> – Jangan spam teks, emoji, link, atau mention
+              berlebihan.
             </li>
             <li>
-              <b>3. Gunakan Channel Sesuai Fungsi</b>
-              <p>
-                Post sesuai topik dan tempatnya. Baca deskripsi channel sebelum
-                mengirim.
-              </p>
+              <b>Gunakan Channel Sesuai Fungsi</b> – Post sesuai topik &
+              deskripsi channel.
             </li>
             <li>
-              <b>4. Dilarang NSFW / Konten Tidak Pantas</b>
-              <p>
-                Komunitas ini untuk semua umur. Konten vulgar, kekerasan, atau
-                dewasa tidak diperbolehkan.
-              </p>
+              <b>Dilarang NSFW</b> – Tidak boleh konten vulgar, kekerasan,
+              dewasa.
             </li>
             <li>
-              <b>5. Tidak Promosi Tanpa Izin</b>
-              <p>
-                Jangan share server Discord lain, sosial media, atau link jualan
-                tanpa izin staff.
-              </p>
+              <b>Tidak Promosi Tanpa Izin</b> – Jangan share link/server/media
+              tanpa izin staff.
             </li>
             <li>
-              <b>6. Gunakan Username & Foto Profil yang Pantas</b>
-              <p>
-                Hindari nama/profil yang menyinggung atau mengandung hal
-                negatif.
-              </p>
+              <b>Username & Foto Profil Pantas</b> – Hindari nama/profil yang
+              menyinggung.
             </li>
             <li>
-              <b>7. Ikuti Arahan Staff</b>
-              <p>
-                Moderator dan Admin berhak menindak pelanggaran. Taatilah arahan
-                mereka.
-              </p>
+              <b>Ikuti Arahan Staff</b> – Moderator/Admin berhak menindak
+              pelanggaran.
             </li>
             <li>
-              <b>8. Larangan Provokasi </b>
-              <p>
-                Dilarang memprovokasi, menghina atau merendahkan player lain
-                dalam alasan apapun
-              </p>
+              <b>Larangan Provokasi</b> – Dilarang memprovokasi atau merendahkan
+              member lain.
             </li>
             <li>
-              <b>9. Share Konten</b>
-              <p>
-                Kirimkan konten dalam bentuk apapun (Pict, Vid, Link) sesuai
-                dengan channel yang sudah tersedia.
-              </p>
+              <b>Share Konten Sesuai Channel</b> – Pict, Vid, Link harus sesuai
+              tempatnya.
             </li>
             <li>
-              <b>10. Nickname</b>
-              <p>
-                Tambahkan nama komunitas di nickname roblox kalian, contoh :
-                BOLDxNickname
-              </p>
+              <b>Nickname</b> – Tambahkan prefix komunitas, contoh:
+              BOLDxNickname.
             </li>
             <li>
-              <b>11. No Exploit / Cheat</b>
-              <p>
-                Dilarang menggunakan cheat, exploit, atau bug abuse di game
-                Roblox maupun di server komunitas.
-              </p>
+              <b>No Exploit / Cheat</b> – Dilarang cheat atau bug abuse di
+              Roblox/server.
             </li>
             <li>
-              <b>12. Privasi & Keamanan</b>
-              <p>
-                Jangan bagikan data pribadi (alamat lengkap, nomor HP, password,
-                akun, dsb). Admin tidak akan pernah minta informasi login.
-              </p>
+              <b>Privasi & Keamanan</b> – Jangan bagikan data pribadi, admin
+              tidak akan minta login.
             </li>
             <li>
-              <b>13. No Drama / Konflik Internal</b>
-              <p>
-                Jika ada masalah antar member, selesaikan secara pribadi atau
-                lapor ke staff, jangan bawa ke publik.
-              </p>
+              <b>No Drama / Konflik Internal</b> – Selesaikan masalah pribadi,
+              jangan bawa ke publik.
             </li>
             <li>
-              <b>14. Event & Giveaway</b>
-              <p>
-                Ikuti aturan yang sudah ditentukan oleh staff pada setiap
-                event/giveaway. Curang = diskualifikasi + kemungkinan ban.
-              </p>
+              <b>Event & Giveaway</b> – Ikuti aturan staff, curang =
+              diskualifikasi/ban.
             </li>
           </ul>
         </AboutCard>
