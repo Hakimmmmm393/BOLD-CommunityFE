@@ -136,6 +136,13 @@ const AboutSection: React.FC = () => {
                 dengan channel yang sudah tersedia.
               </p>
             </li>
+            <li>
+              <b>10. Nickname</b>
+              <p>
+                Tambahkan nama komunitas di nickname roblox kalian, contoh :
+                BOLDxNickname
+              </p>
+            </li>
           </ul>
         </AboutCard>
       </div>
