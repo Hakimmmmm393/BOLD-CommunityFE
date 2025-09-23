@@ -143,6 +143,34 @@ const AboutSection: React.FC = () => {
                 BOLDxNickname
               </p>
             </li>
+            <li>
+              <b>11. No Exploit / Cheat</b>
+              <p>
+                Dilarang menggunakan cheat, exploit, atau bug abuse di game
+                Roblox maupun di server komunitas.
+              </p>
+            </li>
+            <li>
+              <b>12. Privasi & Keamanan</b>
+              <p>
+                Jangan bagikan data pribadi (alamat lengkap, nomor HP, password,
+                akun, dsb). Admin tidak akan pernah minta informasi login.
+              </p>
+            </li>
+            <li>
+              <b>13. No Drama / Konflik Internal</b>
+              <p>
+                Jika ada masalah antar member, selesaikan secara pribadi atau
+                lapor ke staff, jangan bawa ke publik.
+              </p>
+            </li>
+            <li>
+              <b>14. Event & Giveaway</b>
+              <p>
+                Ikuti aturan yang sudah ditentukan oleh staff pada setiap
+                event/giveaway. Curang = diskualifikasi + kemungkinan ban.
+              </p>
+            </li>
           </ul>
         </AboutCard>
       </div>
