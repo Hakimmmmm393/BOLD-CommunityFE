@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import AnimatedSection from "../AnimatedSection";
 import { motion, AnimatePresence } from "framer-motion";
+import { Shield, Star, Users, Target } from "lucide-react"; // ikon
 
-// 🔹 Komponen Card yang bisa dibuka/tutup
+// 🔹 Komponen Card dropdown
 const AboutCard: React.FC<{
   title: string;
   children: React.ReactNode;
@@ -52,10 +53,36 @@ const AboutCard: React.FC<{
   );
 };
 
+// 🔹 Komponen Value Card
+const ValueCard: React.FC<{
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+  delay: number;
+}> = ({ icon, title, desc, delay }) => (
+  <motion.div
+    className="bg-zinc-800 p-6 rounded-2xl shadow-lg hover:shadow-xl border border-zinc-700"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.4 }}
+    transition={{ duration: 0.6, delay }}
+    whileHover={{ scale: 1.05 }}
+  >
+    <div className="flex items-center gap-4 mb-4">
+      <div className="p-3 bg-orange-500/20 rounded-full text-orange-400">
+        {icon}
+      </div>
+      <h3 className="text-xl font-bold text-orange-400">{title}</h3>
+    </div>
+    <p className="text-gray-300">{desc}</p>
+  </motion.div>
+);
+
 // 🔹 Bagian About Section
 const AboutSection: React.FC = () => {
   return (
     <AnimatedSection id="about">
+      {/* Header */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold sm:text-5xl">About Us</h2>
         <p className="mt-4 text-lg text-gray-400">
@@ -63,7 +90,8 @@ const AboutSection: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      {/* Visi Misi Rules */}
+      <div className="grid md:grid-cols-3 gap-8 mb-16">
         {/* Visi */}
         <AboutCard title="Visi" delay={0.1}>
           <p>
@@ -162,6 +190,41 @@ const AboutSection: React.FC = () => {
             </li>
           </ul>
         </AboutCard>
+      </div>
+
+      {/* Nilai-nilai Community */}
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-bold text-orange-500">BOLD Values</h2>
+        <p className="mt-2 text-gray-400">
+          Empat nilai utama yang menjadi pondasi komunitas BOLD.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <ValueCard
+          icon={<Shield size={28} />}
+          title="Bravery"
+          desc="Berani mencoba hal baru di Roblox."
+          delay={0.1}
+        />
+        <ValueCard
+          icon={<Star size={28} />}
+          title="Originality"
+          desc="Kreatif dan orisinal dalam menciptakan pengalaman bermain."
+          delay={0.2}
+        />
+        <ValueCard
+          icon={<Users size={28} />}
+          title="Loyalty"
+          desc="Setia & kompak bersama teman satu komunitas."
+          delay={0.3}
+        />
+        <ValueCard
+          icon={<Target size={28} />}
+          title="Determination"
+          desc="Bertekad mencapai tujuan bersama, baik dalam game maupun event."
+          delay={0.4}
+        />
       </div>
     </AnimatedSection>
   );
