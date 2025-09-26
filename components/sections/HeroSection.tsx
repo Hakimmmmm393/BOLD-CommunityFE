@@ -1,37 +1,23 @@
-import React, { useRef, Suspense } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Dodecahedron, OrbitControls } from "@react-three/drei";
+import React, { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion";
 import Button from "../ui/Button";
 
-const Scene = () => {
-  const meshRef = useRef<any>();
-
-  useFrame((state, delta) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.x += 0.002;
-      meshRef.current.rotation.y += 0.002;
-    }
-  });
-
+// Komponen untuk load model Bear
+const BearHead = () => {
+  const { scene } = useGLTF("/models/Bear/scene.gltf");
   return (
-    <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <Dodecahedron ref={meshRef} args={[1.5, 0]}>
-        <meshStandardMaterial
-          color="#f97316"
-          roughness={0.5}
-          metalness={0.1}
-          wireframe
-        />
-      </Dodecahedron>
-    </>
+    <primitive
+      object={scene}
+      scale={3.5} // perbesar agar dominan
+      position={[0, 0, 0]} // turunkan sedikit supaya kepala pas di tengah
+      rotation={[0, 0.2, 0]} // miring sedikit biar lebih hidup
+    />
   );
 };
 
 const HeroSection: React.FC = () => {
-  // 🔹 Fungsi scroll ke About
   const scrollToAbout = () => {
     const aboutSection = document.getElementById("about");
     if (aboutSection) {
@@ -44,10 +30,13 @@ const HeroSection: React.FC = () => {
       id="home"
       className="relative h-screen flex items-center justify-center text-center overflow-hidden"
     >
+      {/* Background 3D */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+          <ambientLight intensity={1} />
+          <directionalLight position={[5, 5, 5]} intensity={1.2} />
           <Suspense fallback={null}>
-            <Scene />
+            <BearHead />
             <OrbitControls
               enableZoom={false}
               enablePan={false}
@@ -58,7 +47,8 @@ const HeroSection: React.FC = () => {
         </Canvas>
       </div>
 
-      <div className="relative z-10 p-4 bg-zinc-900/50 backdrop-blur-sm rounded-xl">
+      {/* Text dan tombol */}
+      <div className="relative z-10 p-6 bg-zinc-900/50 backdrop-blur-sm rounded-xl">
         <motion.h1
           className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg"
           initial={{ opacity: 0, y: -50 }}
