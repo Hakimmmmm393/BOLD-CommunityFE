@@ -90,6 +90,58 @@ const AboutSection: React.FC = () => {
         </p>
       </div>
 
+      {/* 🔹 Penjelasan tentang BOLD Community */}
+      <motion.div
+        className="bg-zinc-900/50 p-8 rounded-2xl shadow-lg border border-zinc-700 max-w-4xl mx-auto mb-16"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h3 className="text-2xl font-bold text-orange-500 mb-4 text-center">
+          Apa itu BOLD Community?
+        </h3>
+        <p className="text-gray-300 mb-6 text-center">
+          <b>BOLD Community</b> adalah komunitas Roblox yang dibangun untuk
+          menyatukan para pemain yang biasanya bermain sendirian, menjadi bagian
+          dari tim yang seru, dan penuh kekompakan.
+        </p>
+
+        <div className="space-y-3 text-gray-300">
+          <h4 className="text-xl font-semibold text-orange-400">
+            Makna / Arti dari BOLD :
+          </h4>
+          <ul className="list-decimal list-inside space-y-2">
+            <li>
+              <b>Bravery</b> – Berani mencoba hal baru di Roblox.
+            </li>
+            <li>
+              <b>Originality</b> – Kreatif dan orisinal dalam menciptakan
+              pengalaman bermain.
+            </li>
+            <li>
+              <b>Loyalty</b> – Setia & kompak bersama teman satu komunitas.
+            </li>
+            <li>
+              <b>Determination</b> – Bertekad mencapai tujuan bersama, baik
+              dalam game maupun event komunitas.
+            </li>
+          </ul>
+        </div>
+
+        <motion.p
+          className="mt-6 text-lg text-gray-200 italic text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
+          Kami akan menciptakan Roblox bukan sekadar game tapi juga tempat untuk
+          membangun persahabatan, solidaritas, dan momen berkesan. Dengan
+          bergabung di <b>BOLD</b>, kamu nggak akan lagi main sendirian, tapi
+          bareng komunitas yang seru dan suportif ini.
+        </motion.p>
+      </motion.div>
+
       {/* Visi Misi Rules */}
       <div className="grid md:grid-cols-3 gap-8 mb-16">
         {/* Visi */}
