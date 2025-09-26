@@ -86,7 +86,7 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Welcome to the official hub for the BOLD Roblox Community.
+          Welcome to the BOLD Community Profile Website.
         </motion.p>
 
         <motion.div
