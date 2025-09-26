@@ -22,7 +22,7 @@ const BearHead = () => {
       return { scale: 3.5, position: [0, -0.3, 0] };
     } else {
       // HP
-      return { scale: 2.5, position: [0, 0, 0] };
+      return { scale: 3.5, position: [0, 0, 0] };
     }
   }, [size.width]);
 
