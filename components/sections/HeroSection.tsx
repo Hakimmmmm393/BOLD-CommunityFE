@@ -13,10 +13,10 @@ const BearHead = () => {
   const { scale, position } = useMemo(() => {
     if (size.width > 1600) {
       // TV / Monitor besar
-      return { scale: 3.5, position: [0, 0, 0] };
+      return { scale: 4.5, position: [0, 0, 0] };
     } else if (size.width > 1024) {
       // Laptop / Monitor biasa
-      return { scale: 4.5, position: [0, -1.5, 0] };
+      return { scale: 4.5, position: [0, 0, 0] };
     } else if (size.width > 768) {
       // Tablet
       return { scale: 3.5, position: [0, -0.3, 0] };
