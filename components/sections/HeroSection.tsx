@@ -1,18 +1,37 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense, useMemo } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { motion } from "framer-motion";
 import Button from "../ui/Button";
 
-// Komponen untuk load model Bear
+// Komponen untuk load model Bear dengan responsif
 const BearHead = () => {
   const { scene } = useGLTF("/models/Bear/scene.gltf");
+  const { size } = useThree(); // ambil ukuran canvas (width, height)
+
+  // Hitung skala & posisi sesuai device
+  const { scale, position } = useMemo(() => {
+    if (size.width > 1600) {
+      // TV / Monitor besar
+      return { scale: 3.5, position: [0, 0, 0] };
+    } else if (size.width > 1024) {
+      // Laptop / Monitor biasa
+      return { scale: 4.5, position: [0, -1.5, 0] };
+    } else if (size.width > 768) {
+      // Tablet
+      return { scale: 3.5, position: [0, -0.3, 0] };
+    } else {
+      // HP
+      return { scale: 2.5, position: [0, 0, 0] };
+    }
+  }, [size.width]);
+
   return (
     <primitive
       object={scene}
-      scale={3.5} // perbesar agar dominan
-      position={[0, 0, 0]} // turunkan sedikit supaya kepala pas di tengah
-      rotation={[0, 0.2, 0]} // miring sedikit biar lebih hidup
+      scale={scale}
+      position={position}
+      rotation={[0, 0.2, 0]}
     />
   );
 };
@@ -32,7 +51,10 @@ const HeroSection: React.FC = () => {
     >
       {/* Background 3D */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+        <Canvas
+          camera={{ position: [0, 0, 6], fov: 45 }}
+          style={{ width: "100%", height: "100%" }}
+        >
           <ambientLight intensity={1} />
           <directionalLight position={[5, 5, 5]} intensity={1.2} />
           <Suspense fallback={null}>
