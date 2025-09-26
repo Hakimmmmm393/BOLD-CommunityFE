@@ -73,13 +73,13 @@ export const TEAM_STRUCTURE: TeamMember[] = [
   },
   {
     role: "Guard",
-    name: "Placeholder",
-    img: "https://placehold.co/200x200/1e1b18/f97316?text=Guard",
+    name: "BOLD_GUARDxBURONNN",
+    img: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/Quality%20Restoration-Ultra%20HD-Buron.jpeg",
   },
   {
     role: "Guard",
-    name: "Placeholder",
-    img: "https://placehold.co/200x200/1e1b18/f97316?text=Guard",
+    name: "BOLD_GUARDxMOX1",
+    img: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/Quality%20Restoration-Ultra%20HD-moxi.jpeg",
   },
   {
     role: "Guard",
