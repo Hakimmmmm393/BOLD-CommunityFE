@@ -21,21 +21,25 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     url: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/8515744106_109823415860116_1756660685271.png",
     caption: "Event mingguan BOLD DAY",
     date: "2025-09-06",
+    description: "Kegiatan seru bareng komunitas BOLD di event mingguan.",
   },
   {
     url: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/8515744106_109823415860116_1756662137640.png",
     caption: "Event mingguan BOLD DAY",
     date: "2025-09-13",
+    description: "Kegiatan seru bareng komunitas BOLD di event mingguan.",
   },
   {
     url: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/8515744106_109823415860116_1756387857648.png",
     caption: "Etmin etmin tampan",
     date: "2025-08-31",
+    description: "Kegiatan seru bareng komunitas BOLD di event mingguan.",
   },
   {
     url: "https://raw.githubusercontent.com/Hakimmmmm393/Picture-BOLD/refs/heads/main/Roblox_21_09_2025_23_02_18.png",
     caption: "Undangan dari NIX Community",
     date: "2025-09-21",
+    description: "Kegiatan seru bareng komunitas BOLD di event mingguan.",
   },
 ];
 

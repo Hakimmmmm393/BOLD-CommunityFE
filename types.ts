@@ -2,6 +2,7 @@ export interface GalleryItem {
   url: string;
   caption: string;
   date: string;
+  description?: string;
 }
 
 export interface TeamMember {
