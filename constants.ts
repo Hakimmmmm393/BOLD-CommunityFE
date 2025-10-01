@@ -5,7 +5,7 @@ export const LOGO_URL =
 export const PRESIDENT_PHOTO_URL =
   "https://raw.githubusercontent.com/Hakimmmmm393/Picture-Only/refs/heads/main/8515744106_109823415860116_1757947789499.png";
 
-export const DISCORD_LINK = "https://discord.gg/YB8HAJHT";
+export const DISCORD_LINK = "https://discord.gg/CEttdYkAHu";
 export const TIKTOK_LINK = "https://www.tiktok.com/@bold.community";
 
 export const NAV_LINKS = [
